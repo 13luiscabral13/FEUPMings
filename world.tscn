@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://qcw2bjw3vgg5"]
+[gd_scene load_steps=7 format=3 uid="uid://qcw2bjw3vgg5"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_op68r"]
-[ext_resource type="PackedScene" uid="uid://p76wawjkh36m" path="res://Player/player.tscn" id="1_q5ij5"]
+[ext_resource type="PackedScene" uid="uid://p76wawjkh36m" path="res://Lemming/lemming_red.tscn" id="1_q5ij5"]
+[ext_resource type="PackedScene" uid="uid://dgabkh7etgbq3" path="res://Lemming/lemming_green.tscn" id="3_6oakw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijebi"]
 size = Vector2(98, 504)
@@ -38,6 +39,10 @@ offset_top = 523.0
 offset_right = 1149.0
 offset_bottom = 651.0
 
-[node name="Player" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(63, 479)
+[node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
+position = Vector2(60, 476)
 scale = Vector2(0.433238, 0.468209)
+
+[node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
+position = Vector2(128, 468)
+scale = Vector2(0.433, 0.433)
