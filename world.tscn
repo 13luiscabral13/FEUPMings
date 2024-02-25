@@ -39,7 +39,5 @@ offset_right = 1149.0
 offset_bottom = 651.0
 
 [node name="Player" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(146, 477)
-
-[node name="Player2" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(581, 479)
+position = Vector2(63, 479)
+scale = Vector2(0.433238, 0.468209)
