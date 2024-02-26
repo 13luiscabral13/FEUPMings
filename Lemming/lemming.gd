@@ -17,7 +17,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if is_on_wall():
-		print("Hit wall")
+		#print("Hit wall")
 		move_direction *= -1
 		#var collider = get_slide_collision(0).get_collider()
 	
