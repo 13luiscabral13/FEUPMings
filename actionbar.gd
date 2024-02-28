@@ -10,8 +10,8 @@ func _ready():
 	#Connect the button toggled signal
 	for button in grid.get_children():
 		if button is TextureButton:
-			print("Button ", button, " connected")
 			button.connect("pressed", _on_button_toggled.bind(button))
+			button.add_to_group("action_buttons")
 
 func _on_button_toggled(button):
 	# Unselect previous button if selecting a new one
