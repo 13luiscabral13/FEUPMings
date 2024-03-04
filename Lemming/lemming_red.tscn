@@ -1,11 +1,30 @@
-[gd_scene load_steps=33 format=3 uid="uid://p76wawjkh36m"]
+[gd_scene load_steps=50 format=3 uid="uid://p76wawjkh36m"]
 
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_j2fjv"]
 [ext_resource type="Texture2D" uid="uid://dylvt2x86mhy5" path="res://assets/lemmings/red-lemming-idle.png" id="2_s7xqi"]
+[ext_resource type="Texture2D" uid="uid://c6xqslsg042bo" path="res://assets/lemmings/red-lemming-blocking.png" id="2_umj4k"]
+[ext_resource type="Texture2D" uid="uid://cnsv4cvouxc7p" path="res://assets/lemmings/red-lemming-blocking2.png" id="3_gi8td"]
 [ext_resource type="Texture2D" uid="uid://rmigx82pelwx" path="res://assets/lemmings/red-lemming.png" id="3_qfcny"]
 [ext_resource type="Texture2D" uid="uid://csj6bxudnhyg1" path="res://assets/lemmings/new-red-lemming.png" id="3_weqqo"]
+[ext_resource type="Texture2D" uid="uid://bwmsomfe7moml" path="res://assets/lemmings/drinking_red.png" id="4_8rqrr"]
 [ext_resource type="Texture2D" uid="uid://cqthvopb77tmm" path="res://assets/lemmings/new-red-lemming-jump.png" id="4_g6w1g"]
 [ext_resource type="Texture2D" uid="uid://gg81ovtswtjk" path="res://assets/lemmings/red-lemming-walk.png" id="4_sjdds"]
+[ext_resource type="Texture2D" uid="uid://c8gw8sx1lvr5b" path="res://assets/lemmings/red-lemming-laying.png" id="7_asoi2"]
+[ext_resource type="Texture2D" uid="uid://b0m2c5p1xfp8t" path="res://assets/lemmings/red-lemming-laying2.png" id="8_h7k8l"]
+[ext_resource type="Texture2D" uid="uid://bmtp8jr8jgcnb" path="res://assets/lemmings/red-lemming-playing-guitar.png" id="9_jk7il"]
+[ext_resource type="Texture2D" uid="uid://briwr4n46ieex" path="res://assets/lemmings/red-lemming-playing-guitar2.png" id="10_n7vvl"]
+[ext_resource type="Texture2D" uid="uid://24m62fnpcil4" path="res://assets/lemmings/red-lemming-scared3.png" id="13_tr8ql"]
+[ext_resource type="Texture2D" uid="uid://c8wpu3e500yn2" path="res://assets/lemmings/red-lemming-scared2.png" id="14_vw71n"]
+[ext_resource type="Texture2D" uid="uid://prauisrqrbmi" path="res://assets/lemmings/red-lemming-scared.png" id="15_8wio4"]
+[ext_resource type="Texture2D" uid="uid://cixj3f7mynchg" path="res://assets/lemmings/phones_red.png" id="17_vtjot"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_papui"]
+atlas = ExtResource("4_8rqrr")
+region = Rect2(0, 0, 142, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h57n"]
+atlas = ExtResource("4_8rqrr")
+region = Rect2(157, 0, 142, 250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vr4x"]
 atlas = ExtResource("2_s7xqi")
@@ -63,11 +82,36 @@ region = Rect2(650, 298, 156, 298)
 atlas = ExtResource("4_sjdds")
 region = Rect2(806, 298, 156, 298)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaor8"]
+atlas = ExtResource("17_vtjot")
+region = Rect2(0, 0, 134, 250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwm5x"]
+atlas = ExtResource("17_vtjot")
+region = Rect2(148, 0, 134, 250)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_huw75"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_umj4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gi8td")
+}],
 "loop": true,
 "name": &"Block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_papui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7h57n")
+}],
+"loop": true,
+"name": &"Drinking",
 "speed": 5.0
 }, {
 "frames": [{
@@ -104,12 +148,24 @@ animations = [{
 "name": &"Jump",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_asoi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h7k8l")
+}],
 "loop": true,
 "name": &"Lay",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jk7il")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n7vvl")
+}],
 "loop": true,
 "name": &"Play Guitar",
 "speed": 5.0
@@ -136,6 +192,31 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_tr8ql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vw71n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8wio4")
+}],
+"loop": true,
+"name": &"Scared",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaor8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwm5x")
+}],
+"loop": true,
+"name": &"Texting",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixeiv"]
@@ -146,6 +227,32 @@ height = 212.0
 
 [sub_resource type="Animation" id="Animation_7pfui"]
 resource_name = "Block"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Block"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="Animation" id="Animation_w5lv4"]
 resource_name = "Idle"
@@ -206,9 +313,60 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_8rvs0"]
 resource_name = "Lay"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Lay"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="Animation" id="Animation_06xfs"]
 resource_name = "Play Guitar"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Play Guitar"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="Animation" id="Animation_b17pi"]
 length = 0.001
@@ -256,17 +414,101 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5c44c"]
 resource_name = "Scared"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Scared"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_tpnsv"]
+resource_name = "Texting"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Texting"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_y0dxp"]
+resource_name = "Drinking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Drinking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs2yi"]
 _data = {
 "Block": SubResource("Animation_7pfui"),
+"Drinking": SubResource("Animation_y0dxp"),
 "Idle": SubResource("Animation_w5lv4"),
 "Jump": SubResource("Animation_xt5dq"),
 "Lay": SubResource("Animation_8rvs0"),
 "Play Guitar": SubResource("Animation_06xfs"),
 "RESET": SubResource("Animation_b17pi"),
 "Run": SubResource("Animation_74rip"),
-"Scared": SubResource("Animation_5c44c")
+"Scared": SubResource("Animation_5c44c"),
+"Texting": SubResource("Animation_tpnsv")
 }
 
 [node name="Lemming Red" type="CharacterBody2D"]
@@ -276,10 +518,11 @@ input_pickable = true
 script = ExtResource("1_j2fjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -16)
+position = Vector2(-8, -19)
 sprite_frames = SubResource("SpriteFrames_huw75")
-animation = &"Jump"
+animation = &"Scared"
 frame = 1
+offset = Vector2(6, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -5)

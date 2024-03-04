@@ -27,7 +27,7 @@ func _physics_process(delta):
 	
 	if move_direction == -1:
 		get_node("AnimatedSprite2D").flip_h = true
-	else:
+	elif move_direction == 1:
 		get_node("AnimatedSprite2D").flip_h = false
 		
 	# Automatically move in the current direction
@@ -35,15 +35,22 @@ func _physics_process(delta):
 	move_and_slide()
 
 func playNextAnim(anim_name):
-	print("Playing next animation")
-	
 	if anim_name == "Jump":
-		print("Changing animation to run")
 		anim.play("Run")
+	elif anim_name == "Scared":
+		# Change the animation direction
+		if get_node("AnimatedSprite2D").flip_h == true:
+			move_direction = 1
+		elif get_node("AnimatedSprite2D").flip_h == false:
+			move_direction = -1
+		
+		anim.play("Run")
+	elif anim_name == "Lay":
+		move_direction = 0
+		
 
 func apply_action_if_button_pressed():
 	var button = check_action_button_pressed()
-	print("Button: ", button.name)
 	
 	if button != null:
 		apply_action(button.name)
@@ -68,12 +75,19 @@ func apply_action(action):
 		velocity.y = JUMP_VELOCITY
 	elif action == "Button Blocking":
 		print("Block")
+		anim.play("Block")
+		move_direction = 0
 	elif action == "Button Playing Guitar":
 		print("Play Guitar")
+		anim.play("Play Guitar")
+		move_direction = 0
 	elif action == "Button Laying":
 		print("Lay")
+		anim.play("Lay")
 	elif action == "Button Scared":
 		print("Scared")
+		anim.play("Scared")
+		move_direction = 0
 
 func _on_input_event_red_lemming(viewport, event, shape_idx):
 	# Check for left clicks for the mouse on characters
