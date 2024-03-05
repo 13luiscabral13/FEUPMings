@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Lemming
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -400.0
@@ -21,7 +22,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if is_on_wall():
-		#print("Hit wall")
+		print("Hit wall")
 		move_direction *= -1
 		#var collider = get_slide_collision(0).get_collider()
 	
@@ -104,3 +105,9 @@ func _on_input_event_green_lemming(viewport, event, shape_idx):
 		print("Character pressed: ", character)
 		
 		apply_action_if_button_pressed()
+		
+		
+func stop_moving():
+	anim.play("Idle")
+	move_direction = 0
+	
