@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://p76wawjkh36m"]
+[gd_scene load_steps=51 format=3 uid="uid://p76wawjkh36m"]
 
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_j2fjv"]
 [ext_resource type="Texture2D" uid="uid://dylvt2x86mhy5" path="res://assets/lemmings/red-lemming-idle.png" id="2_s7xqi"]
@@ -254,6 +254,35 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_y0dxp"]
+resource_name = "Drinking"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Drinking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_w5lv4"]
 resource_name = "Idle"
 length = 0.8
@@ -468,35 +497,6 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_y0dxp"]
-resource_name = "Drinking"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Drinking"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs2yi"]
 _data = {
 "Block": SubResource("Animation_7pfui"),
@@ -510,6 +510,10 @@ _data = {
 "Scared": SubResource("Animation_5c44c"),
 "Texting": SubResource("Animation_tpnsv")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_expw1"]
+radius = 45.0
+height = 202.0
 
 [node name="Lemming Red" type="CharacterBody2D"]
 position = Vector2(208, 165)
@@ -536,6 +540,13 @@ libraries = {
 "": SubResource("AnimationLibrary_vs2yi")
 }
 autoplay = "Run"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 999
+position = Vector2(0, -12)
+shape = SubResource("CapsuleShape2D_expw1")
 
 [connection signal="input_event" from="." to="." method="_on_input_event_red_lemming"]
 [connection signal="ready" from="." to="." method="_on_ready"]
