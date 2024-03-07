@@ -111,3 +111,5 @@ func stop_moving():
 	anim.play("Idle")
 	move_direction = 0
 	
+func go_up_ladder():
+	stop_moving()
