@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7os5nd0vjcrf"]
+
+[ext_resource type="Script" path="res://obstacles.gd" id="1_0vsoi"]
+[ext_resource type="Texture2D" uid="uid://cy35ycgitfaid" path="res://assets/menus/obstacles.png" id="2_ubvn7"]
+
+[node name="Obstacles Menu" type="Node2D"]
+script = ExtResource("1_0vsoi")
+
+[node name="Obstacles" type="Sprite2D" parent="."]
+position = Vector2(578.5, 326.5)
+scale = Vector2(0.597396, 0.600926)
+texture = ExtResource("2_ubvn7")
+
+[node name="Rules Button" type="Button" parent="."]
+offset_left = 874.0
+offset_top = 16.0
+offset_right = 1131.0
+offset_bottom = 108.0
+theme_type_variation = &"FlatButton"
+
+[connection signal="pressed" from="Rules Button" to="." method="_on_rules_button_pressed"]

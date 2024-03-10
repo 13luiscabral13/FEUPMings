@@ -221,7 +221,9 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixeiv"]
 radius = 46.0
-height = 212.0
+height = 188.0
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_vjvoa"]
 
 [sub_resource type="Animation" id="Animation_7pfui"]
 resource_name = "Block"
@@ -513,10 +515,6 @@ _data = {
 radius = 45.0
 height = 202.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hxky1"]
-radius = 42.5
-height = 219.0
-
 [node name="Lemming Red" type="CharacterBody2D"]
 position = Vector2(208, 165)
 collision_layer = 2
@@ -524,15 +522,19 @@ input_pickable = true
 script = ExtResource("1_j2fjv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 999
 position = Vector2(-8, -19)
 sprite_frames = SubResource("SpriteFrames_huw75")
-animation = &"Lay"
+animation = &"Run"
 frame = 1
 offset = Vector2(6, 0)
 
-[node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -5)
 shape = SubResource("CapsuleShape2D_ixeiv")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_vjvoa")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -547,11 +549,5 @@ z_index = 999
 position = Vector2(0, -12)
 shape = SubResource("CapsuleShape2D_expw1")
 
-[node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-13.5, -6.5)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_hxky1")
-disabled = true
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="input_event" from="." to="." method="_on_input_event_red_lemming"]
 [connection signal="ready" from="." to="." method="_on_ready"]
