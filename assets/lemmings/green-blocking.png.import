@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo3yf0sweuynj"
-path="res://.godot/imported/JackBlocking_2Green.png-cac8085339f6e888e6bcd19cd4f5baa0.ctex"
+uid="uid://cbtp3ckgra5l7"
+path="res://.godot/imported/green-blocking.png-9078a1f25195a859f6bd132f59bd827b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lemmings/JackBlocking_2Green.png"
-dest_files=["res://.godot/imported/JackBlocking_2Green.png-cac8085339f6e888e6bcd19cd4f5baa0.ctex"]
+source_file="res://assets/lemmings/green-blocking.png"
+dest_files=["res://.godot/imported/green-blocking.png-9078a1f25195a859f6bd132f59bd827b.ctex"]
 
 [params]
 

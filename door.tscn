@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgjkx8mnwxm2r"]
+[gd_scene load_steps=8 format=3 uid="uid://dq64c3hbg1f12"]
 
 [ext_resource type="Texture2D" uid="uid://bwac85fiun3cg" path="res://assets/doors/closed.png" id="1_gi3te"]
 [ext_resource type="Script" path="res://door.gd" id="1_v1aea"]

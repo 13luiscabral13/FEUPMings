@@ -1,12 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://qcw2bjw3vgg5"]
+[gd_scene load_steps=15 format=3 uid="uid://qcw2bjw3vgg5"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_op68r"]
 [ext_resource type="PackedScene" uid="uid://p76wawjkh36m" path="res://Lemming/lemming_red.tscn" id="1_q5ij5"]
 [ext_resource type="Texture2D" uid="uid://duxrwq46ehrvy" path="res://assets/unformatted_assets/feupwallpaper.jpg" id="2_nrif8"]
 [ext_resource type="PackedScene" uid="uid://dgabkh7etgbq3" path="res://Lemming/lemming_green.tscn" id="3_6oakw"]
-[ext_resource type="PackedScene" path="res://actionbar.tscn" id="4_ql8du"]
+[ext_resource type="PackedScene" uid="uid://cbn2bevivm3ts" path="res://actionbar.tscn" id="4_ql8du"]
 [ext_resource type="Texture2D" uid="uid://d0yck7rimw6jh" path="res://assets/tilemaps/pngtileset.png" id="5_chyrp"]
-[ext_resource type="PackedScene" uid="uid://dgjkx8mnwxm2r" path="res://door.tscn" id="7_t6vu8"]
+[ext_resource type="PackedScene" uid="uid://dq64c3hbg1f12" path="res://door.tscn" id="7_t6vu8"]
+[ext_resource type="PackedScene" uid="uid://dxp5b0vy08fjo" path="res://drink.tscn" id="8_uq07t"]
+[ext_resource type="PackedScene" uid="uid://0hh4u10xdilj" path="res://phone.tscn" id="9_ya8po"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijebi"]
 size = Vector2(98, 504)
@@ -12060,13 +12062,13 @@ offset_right = 1154.0
 offset_bottom = 819.0
 texture = ExtResource("2_nrif8")
 
-[node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(194, 79)
-scale = Vector2(0.2, 0.216)
-
 [node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
-position = Vector2(145, 82)
-scale = Vector2(0.2, 0.2)
+position = Vector2(67, 94)
+scale = Vector2(0.22, 0.22)
+
+[node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
+position = Vector2(27, 93)
+scale = Vector2(0.216, 0.216)
 
 [node name="Action Bar" parent="." instance=ExtResource("4_ql8du")]
 
@@ -12080,3 +12082,11 @@ position = Vector2(89, 447)
 
 [node name="Door2" parent="." instance=ExtResource("7_t6vu8")]
 position = Vector2(480, 383)
+
+[node name="Drink" parent="." instance=ExtResource("8_uq07t")]
+position = Vector2(27, 285)
+scale = Vector2(0.427179, 0.427179)
+
+[node name="Phone" parent="." instance=ExtResource("9_ya8po")]
+position = Vector2(67, 284)
+scale = Vector2(0.207547, 0.207547)

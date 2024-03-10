@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Lemming
 
-const SPEED = 100.0
+const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,7 +22,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if is_on_wall():
-		print("Hit wall")
+		print("Hit wall: ", get_node("."))
 		move_direction *= -1
 		#var collider = get_slide_collision(0).get_collider()
 	
@@ -34,6 +34,14 @@ func _physics_process(delta):
 	# Automatically move in the current direction
 	velocity.x = move_direction * SPEED
 	move_and_slide()
+	
+func _on_input_event(viewport, event, shape_idx):
+	# Check for left clicks for the mouse on characters
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var character = get_node(".")
+		print("Character pressed: ", character)
+		
+		apply_action_if_button_pressed()
 
 func playNextAnim(anim_name):
 	if anim_name == "Jump":
@@ -48,6 +56,11 @@ func playNextAnim(anim_name):
 		anim.play("Run")
 	elif anim_name == "Lay":
 		move_direction = 0
+		# Activate laying collision shape
+		var standingCollisionShape = $StandingCollisionShape
+		var layingCollisionShape = $LayingCollisionShape
+		standingCollisionShape.disabled = true
+		layingCollisionShape.disabled = false
 		
 
 func apply_action_if_button_pressed():
@@ -89,25 +102,17 @@ func apply_action(action):
 		print("Scared")
 		anim.play("Scared")
 		move_direction = 0
-
-func _on_input_event_red_lemming(viewport, event, shape_idx):
-	# Check for left clicks for the mouse on characters
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var character = get_node(".")
-		print("Character pressed: ", character)
-		
-		apply_action_if_button_pressed()
-		
-func _on_input_event_green_lemming(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		# Check for left clicks for the mouse on characters
-		var character = get_node(".")
-		print("Character pressed: ", character)
-		
-		apply_action_if_button_pressed()
 		
 		
 func stop_moving():
 	anim.play("Idle")
 	move_direction = 0
 	
+func drinking():
+	anim.play("Drinking")
+	move_direction = 0
+
+func texting():
+	anim.play("Texting")
+	move_direction = 0
+

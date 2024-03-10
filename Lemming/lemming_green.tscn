@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://cquih5rsnfikk" path="res://assets/lemmings/green-lemming-idle.png" id="1_60pdq"]
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_hk3en"]
-[ext_resource type="Texture2D" uid="uid://ctsf708t4ypbp" path="res://assets/lemmings/green-lemming-blocking.png" id="2_d0qpp"]
+[ext_resource type="Texture2D" uid="uid://bdcwlwgmwv7tc" path="res://assets/lemmings/green-blocking2.png" id="2_8joce"]
 [ext_resource type="Texture2D" uid="uid://38bt2jth4sa8" path="res://assets/lemmings/green-lemming-walk.png" id="2_fyj0w"]
-[ext_resource type="Texture2D" uid="uid://cnqqnhxoa1jg5" path="res://assets/lemmings/green-lemming-blocking2.png" id="3_8r21q"]
+[ext_resource type="Texture2D" uid="uid://cbtp3ckgra5l7" path="res://assets/lemmings/green-blocking.png" id="3_w2uv6"]
 [ext_resource type="Texture2D" uid="uid://bj48ocjjt1frc" path="res://assets/lemmings/new-green-lemming.png" id="3_yse3u"]
 [ext_resource type="Texture2D" uid="uid://k6y5nilhiafe" path="res://assets/lemmings/new-green-lemming-jump.png" id="4_tcn1q"]
 [ext_resource type="Texture2D" uid="uid://bf5ujc0o8u6w" path="res://assets/lemmings/drinking_green.png" id="4_v0734"]
@@ -92,10 +92,10 @@ region = Rect2(150, 0, 139, 250)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_d0qpp")
+"texture": ExtResource("2_8joce")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_8r21q")
+"texture": ExtResource("3_w2uv6")
 }],
 "loop": true,
 "name": &"Block",
@@ -217,8 +217,6 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rykm"]
 radius = 45.0
 height = 216.0
-
-[sub_resource type="AnimationRootNode" id="AnimationRootNode_tnryp"]
 
 [sub_resource type="Animation" id="Animation_vlifx"]
 resource_name = "Block"
@@ -523,22 +521,23 @@ _data = {
 radius = 47.0
 height = 226.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqm70"]
+radius = 42.5
+height = 219.0
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
+collision_mask = 5
 input_pickable = true
 script = ExtResource("1_hk3en")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1reux")
 animation = &"Lay"
-frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 10)
+[node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
 shape = SubResource("CapsuleShape2D_1rykm")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationRootNode_tnryp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -552,5 +551,11 @@ autoplay = "Run"
 z_index = 999
 shape = SubResource("CapsuleShape2D_s3tix")
 
-[connection signal="input_event" from="." to="." method="_on_input_event_green_lemming"]
+[node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-13.5, 14.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qqm70")
+disabled = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="ready" from="." to="." method="_on_ready"]
