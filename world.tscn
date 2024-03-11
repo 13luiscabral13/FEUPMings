@@ -12113,10 +12113,6 @@ tab_size = 1
 position = Vector2(26, 101)
 scale = Vector2(0.2, 0.2)
 
-[node name="Lemming Red2" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(59, 99)
-scale = Vector2(0.2, 0.2)
-
 [node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
 position = Vector2(94, 97)
 scale = Vector2(0.2, 0.2)
