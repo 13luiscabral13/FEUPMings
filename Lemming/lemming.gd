@@ -100,9 +100,8 @@ func apply_action(action):
 		print("Block")
 		anim.play("Block")
 		move_direction = 0
-		var character = get_node(".")
-		character.collision_layer = 1
-		character.collision_mask = 3 # 7 in binary, which means that layers 1, 2 and 3 are active
+		collision_layer = 1
+		collision_mask = 3 # 3 in binary, which means that layers 1 and 2 are active
 	elif action == "Button Playing Guitar":
 		print("Play Guitar")
 		anim.play("Play Guitar")
@@ -146,6 +145,8 @@ func drinking():
 func texting():
 	anim.play("Texting")
 	move_direction = 0
+	collision_layer = 1
+	collision_mask = 3 # 3 in binary, which means that layers 1 and 2 are active
 	#activate_collision("standing")
 
 func go_up_ladder():
