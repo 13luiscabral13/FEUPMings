@@ -11423,7 +11423,7 @@ texture = ExtResource("5_chyrp")
 0:76/0 = 0
 0:76/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:76/0/physics_layer_0/angular_velocity = 0.0
-0:76/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 0, -0.375, 8, 8, -8, 8)
+0:76/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:76/0 = 0
 1:76/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:76/0/physics_layer_0/angular_velocity = 0.0
@@ -11448,10 +11448,11 @@ texture = ExtResource("5_chyrp")
 8:76/0 = 0
 8:76/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:76/0/physics_layer_0/angular_velocity = 0.0
+8:76/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, 8, -8)
 9:76/0 = 0
 9:76/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:76/0/physics_layer_0/angular_velocity = 0.0
-9:76/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:76/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, 8, -8, 8)
 10:76/0 = 0
 10:76/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:76/0/physics_layer_0/angular_velocity = 0.0
@@ -12096,7 +12097,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "0/7"
 
 [node name="Door2" parent="." instance=ExtResource("7_t6vu8")]
-position = Vector2(370, 382)
+position = Vector2(155, 239)
 
 [node name="green" type="RichTextLabel" parent="Door2"]
 offset_left = -37.0
@@ -12110,15 +12111,11 @@ fit_content = true
 tab_size = 1
 
 [node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(26, 101)
-scale = Vector2(0.2, 0.2)
-
-[node name="Lemming Red2" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(59, 99)
+position = Vector2(65, 88)
 scale = Vector2(0.2, 0.2)
 
 [node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
-position = Vector2(94, 97)
+position = Vector2(140, 94)
 scale = Vector2(0.2, 0.2)
 
 [node name="Ladder" parent="." instance=ExtResource("8_52133")]

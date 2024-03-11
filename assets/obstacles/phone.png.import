@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da4b6rq6i4dir"
-path="res://.godot/imported/JackBlockingGreen.png-717ed1b7924bdf4b0a5d7496fcdd24e3.ctex"
+uid="uid://e0dja7ltffnr"
+path="res://.godot/imported/phone.png-a8d7893b3d2287c99f029996516303e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lemmings/JackBlockingGreen.png"
-dest_files=["res://.godot/imported/JackBlockingGreen.png-717ed1b7924bdf4b0a5d7496fcdd24e3.ctex"]
+source_file="res://assets/obstacles/phone.png"
+dest_files=["res://.godot/imported/phone.png-a8d7893b3d2287c99f029996516303e9.ctex"]
 
 [params]
 

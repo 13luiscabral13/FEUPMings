@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctsf708t4ypbp"
-path="res://.godot/imported/green-lemming-blocking.png-1899b4e3ac616ca9c8788d619bb8ef31.ctex"
+uid="uid://bdcwlwgmwv7tc"
+path="res://.godot/imported/green-blocking2.png-4c52da964e9fd662a89961eced697cd8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/lemmings/green-lemming-blocking.png"
-dest_files=["res://.godot/imported/green-lemming-blocking.png-1899b4e3ac616ca9c8788d619bb8ef31.ctex"]
+source_file="res://assets/lemmings/green-blocking2.png"
+dest_files=["res://.godot/imported/green-blocking2.png-4c52da964e9fd662a89961eced697cd8.ctex"]
 
 [params]
 
