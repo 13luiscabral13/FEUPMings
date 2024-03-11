@@ -13,6 +13,7 @@ var move_direction = 1
 @onready var anim = get_node("AnimationPlayer")
 
 func _on_ready():
+	add_to_group("lemmings")
 	anim.connect("animation_finished", playNextAnim)
 	anim.play("Run")
 
@@ -102,12 +103,12 @@ func apply_action(action):
 		var character = get_node(".")
 		character.collision_layer = 1
 		character.collision_mask = 3 # 7 in binary, which means that layers 1, 2 and 3 are active
-		#activate_collision("standing")
 	elif action == "Button Playing Guitar":
 		print("Play Guitar")
 		anim.play("Play Guitar")
 		move_direction = 0
-		#activate_collision("standing")
+		attract_lemmings()
+		
 	elif action == "Button Laying":
 		print("Lay")
 		anim.play("Lay")
@@ -116,7 +117,22 @@ func apply_action(action):
 		anim.play("Scared")
 		move_direction = 0
 		
-		
+func attract_lemmings():
+	print("Attracting lemmings")
+	var lemmings = get_tree().get_nodes_in_group("lemmings")
+	
+	for lemming in lemmings:
+		if get_node(".") == lemming:
+			# Skip because it's the lemming itself
+			continue
+		# Calculate the direction towards the target lemming for each lemming
+		var direction = (global_position - lemming.global_position).normalized()[0]
+		if direction < 0:
+			lemming.move_direction = -1
+		elif direction > 0:
+			lemming.move_direction = 1
+		print("New direction: ", direction)
+	
 func stop_moving():
 	anim.play("Idle")
 	move_direction = 0
