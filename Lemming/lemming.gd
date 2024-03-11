@@ -61,17 +61,13 @@ func playNextAnim(anim_name):
 		
 func activate_collision(collision):
 	var standingCollisionShape = $StandingCollisionShape
-	var runningCollisionShape = $RunningCollisionShape
 	var layingCollisionShape = $LayingCollisionShape
 	
 	standingCollisionShape.disabled = true
-	runningCollisionShape.disabled = true
 	layingCollisionShape.disabled = true
 	
 	if collision == "standing":
 		standingCollisionShape.disabled = false
-	elif collision == "running":
-		runningCollisionShape.disabled = false
 	elif collision == "laying":
 		layingCollisionShape.disabled = false
 

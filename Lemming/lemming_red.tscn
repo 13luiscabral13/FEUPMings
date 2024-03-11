@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://p76wawjkh36m"]
+[gd_scene load_steps=44 format=3 uid="uid://p76wawjkh36m"]
 
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_j2fjv"]
 [ext_resource type="Texture2D" uid="uid://c6xqslsg042bo" path="res://assets/lemmings/red-lemming-blocking.png" id="2_umj4k"]
@@ -450,6 +450,10 @@ _data = {
 radius = 45.0
 height = 202.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14wyy"]
+radius = 36.0
+height = 218.0
+
 [node name="Lemming Red" type="CharacterBody2D"]
 position = Vector2(208, 165)
 collision_layer = 2
@@ -460,11 +464,11 @@ script = ExtResource("1_j2fjv")
 z_index = 999
 position = Vector2(-8, -19)
 sprite_frames = SubResource("SpriteFrames_huw75")
-animation = &"Run"
+animation = &"Lay"
 frame = 1
 offset = Vector2(6, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-12, -10)
 shape = SubResource("CapsuleShape2D_ixeiv")
 
@@ -483,6 +487,12 @@ autoplay = "Run"
 z_index = 999
 position = Vector2(-10, -17)
 shape = SubResource("CapsuleShape2D_expw1")
+
+[node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(-15, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_14wyy")
+disabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="ready" from="." to="." method="_on_ready"]

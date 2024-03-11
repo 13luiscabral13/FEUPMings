@@ -23,7 +23,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o2jil"]
-size = Vector2(127.1, 153.75)
+size = Vector2(8.2, 131.2)
 
 [sub_resource type="Animation" id="Animation_qbypl"]
 resource_name = "open"
@@ -34,7 +34,7 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.2, 0.7, 1.4),
+"times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 2, 0]
@@ -59,7 +59,7 @@ scale = Vector2(0.487805, 0.487805)
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-4.1, -2.67496)
+position = Vector2(0, 0.399963)
 shape = SubResource("RectangleShape2D_o2jil")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -69,3 +69,4 @@ libraries = {
 }
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
