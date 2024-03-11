@@ -12096,7 +12096,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "0/7"
 
 [node name="Door2" parent="." instance=ExtResource("7_t6vu8")]
-position = Vector2(338, 64)
+position = Vector2(370, 382)
 
 [node name="green" type="RichTextLabel" parent="Door2"]
 offset_left = -37.0
