@@ -482,9 +482,10 @@ script = ExtResource("1_hk3en")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1reux")
 animation = &"Lay"
+frame = 1
 
 [node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-10, -2)
+position = Vector2(-12, -6)
 shape = SubResource("CapsuleShape2D_1rykm")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -497,7 +498,7 @@ autoplay = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 999
-position = Vector2(-11, -8)
+position = Vector2(-13, -12)
 shape = SubResource("CapsuleShape2D_s3tix")
 
 [node name="LayingCollisionShape" type="CollisionShape2D" parent="."]

@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dgabkh7etgbq3" path="res://Lemming/lemming_green.tscn" id="3_6oakw"]
 [ext_resource type="PackedScene" uid="uid://cbn2bevivm3ts" path="res://actionbar.tscn" id="4_ql8du"]
 [ext_resource type="Texture2D" uid="uid://d0yck7rimw6jh" path="res://assets/tilemaps/pngtileset.png" id="5_chyrp"]
-[ext_resource type="PackedScene" uid="uid://dq64c3hbg1f12" path="res://door.tscn" id="7_t6vu8"]
-[ext_resource type="PackedScene" path="res://ladder.tscn" id="8_52133"]
+[ext_resource type="PackedScene" uid="uid://dgjkx8mnwxm2r" path="res://door.tscn" id="7_t6vu8"]
+[ext_resource type="PackedScene" uid="uid://cklc5vcbbbp57" path="res://ladder.tscn" id="8_52133"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijebi"]
 size = Vector2(98, 504)
@@ -12096,7 +12096,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "0/7"
 
 [node name="Door2" parent="." instance=ExtResource("7_t6vu8")]
-position = Vector2(338, 64)
+position = Vector2(155, 239)
 
 [node name="green" type="RichTextLabel" parent="Door2"]
 offset_left = -37.0
@@ -12110,11 +12110,11 @@ fit_content = true
 tab_size = 1
 
 [node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(26, 101)
+position = Vector2(65, 88)
 scale = Vector2(0.2, 0.2)
 
 [node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
-position = Vector2(94, 97)
+position = Vector2(140, 94)
 scale = Vector2(0.2, 0.2)
 
 [node name="Ladder" parent="." instance=ExtResource("8_52133")]

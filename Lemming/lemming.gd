@@ -57,11 +57,23 @@ func playNextAnim(anim_name):
 	elif anim_name == "Lay":
 		move_direction = 0
 		# Activate laying collision shape
-		var standingCollisionShape = $StandingCollisionShape
-		var layingCollisionShape = $LayingCollisionShape
-		standingCollisionShape.disabled = true
-		layingCollisionShape.disabled = false
+		activate_collision("laying")
 		
+func activate_collision(collision):
+	var standingCollisionShape = $StandingCollisionShape
+	var runningCollisionShape = $RunningCollisionShape
+	var layingCollisionShape = $LayingCollisionShape
+	
+	standingCollisionShape.disabled = true
+	runningCollisionShape.disabled = true
+	layingCollisionShape.disabled = true
+	
+	if collision == "standing":
+		standingCollisionShape.disabled = false
+	elif collision == "running":
+		runningCollisionShape.disabled = false
+	elif collision == "laying":
+		layingCollisionShape.disabled = false
 
 func apply_action_if_button_pressed():
 	var button = check_action_button_pressed()
@@ -91,10 +103,15 @@ func apply_action(action):
 		print("Block")
 		anim.play("Block")
 		move_direction = 0
+		var character = get_node(".")
+		character.collision_layer = 1
+		character.collision_mask = 3 # 7 in binary, which means that layers 1, 2 and 3 are active
+		#activate_collision("standing")
 	elif action == "Button Playing Guitar":
 		print("Play Guitar")
 		anim.play("Play Guitar")
 		move_direction = 0
+		#activate_collision("standing")
 	elif action == "Button Laying":
 		print("Lay")
 		anim.play("Lay")
@@ -107,12 +124,15 @@ func apply_action(action):
 func stop_moving():
 	anim.play("Idle")
 	move_direction = 0
+	#activate_collision("standing")
 	
 func drinking():
 	anim.play("Drinking")
 	move_direction = 0
+	#activate_collision("standing")
 
 func texting():
 	anim.play("Texting")
 	move_direction = 0
+	#activate_collision("standing")
 

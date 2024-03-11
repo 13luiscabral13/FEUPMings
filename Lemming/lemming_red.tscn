@@ -460,12 +460,12 @@ script = ExtResource("1_j2fjv")
 z_index = 999
 position = Vector2(-8, -19)
 sprite_frames = SubResource("SpriteFrames_huw75")
-animation = &"Drinking"
+animation = &"Run"
 frame = 1
 offset = Vector2(6, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -5)
+position = Vector2(-12, -10)
 shape = SubResource("CapsuleShape2D_ixeiv")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
@@ -481,8 +481,8 @@ autoplay = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 999
-position = Vector2(0, -12)
+position = Vector2(-10, -17)
 shape = SubResource("CapsuleShape2D_expw1")
 
-[connection signal="input_event" from="." to="." method="_on_input_event_red_lemming"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="ready" from="." to="." method="_on_ready"]
