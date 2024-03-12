@@ -450,9 +450,9 @@ _data = {
 radius = 45.0
 height = 202.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14wyy"]
-radius = 36.0
-height = 218.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uuwkb"]
+a = Vector2(4.99959, -115)
+b = Vector2(3.00041, 111)
 
 [node name="Lemming Red" type="CharacterBody2D"]
 position = Vector2(208, 165)
@@ -489,9 +489,9 @@ position = Vector2(-10, -17)
 shape = SubResource("CapsuleShape2D_expw1")
 
 [node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-15, 2)
+position = Vector2(-15, 14)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_14wyy")
+shape = SubResource("SegmentShape2D_uuwkb")
 disabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

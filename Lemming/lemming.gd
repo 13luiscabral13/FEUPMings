@@ -111,6 +111,8 @@ func apply_action(action):
 	elif action == "Button Laying":
 		print("Lay")
 		anim.play("Lay")
+		collision_layer = 1
+		collision_mask = 3 # 3 in binary, which means that layers 1 and 2 are active
 	elif action == "Button Scared":
 		print("Scared")
 		anim.play("Scared")

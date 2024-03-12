@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qcw2bjw3vgg5"]
+[gd_scene load_steps=14 format=3 uid="uid://qcw2bjw3vgg5"]
 
 [ext_resource type="Script" path="res://world.gd" id="1_op68r"]
 [ext_resource type="PackedScene" uid="uid://p76wawjkh36m" path="res://Lemming/lemming_red.tscn" id="1_q5ij5"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://d0yck7rimw6jh" path="res://assets/tilemaps/pngtileset.png" id="5_chyrp"]
 [ext_resource type="PackedScene" uid="uid://dgjkx8mnwxm2r" path="res://door.tscn" id="7_t6vu8"]
 [ext_resource type="PackedScene" uid="uid://cklc5vcbbbp57" path="res://ladder.tscn" id="8_52133"]
-[ext_resource type="PackedScene" uid="uid://0hh4u10xdilj" path="res://phone.tscn" id="9_qa6l5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ijebi"]
 size = Vector2(98, 504)
@@ -12122,7 +12121,3 @@ scale = Vector2(0.22, 0.22)
 [node name="Ladder" parent="." instance=ExtResource("8_52133")]
 position = Vector2(1140, 226)
 scale = Vector2(0.28, 0.22)
-
-[node name="Phone" parent="." instance=ExtResource("9_qa6l5")]
-position = Vector2(304, 104)
-scale = Vector2(0.2, 0.2)
