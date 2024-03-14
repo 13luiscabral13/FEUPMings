@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in get_node("Firework").get_children():
+		i.play("default")
 	pass # Replace with function body.
 
 
@@ -10,16 +12,9 @@ func _ready():
 func _process(delta):
 	pass
 
-
-func _on_area_2d_area_entered(area):
-	print("Going up ladder")
-	var lemming = area.get_parent()
-	lemming.go_up_ladder()
+func _on_quit_button_pressed():
+	get_tree().quit()
 
 
-
-func _on_area_2d_area_exited(area):
-	print("Area Exited")
-	var lemming = area.get_parent()
-	lemming.stop_ladder()
-
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file("res://world.tscn")

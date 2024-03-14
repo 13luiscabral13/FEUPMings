@@ -7,6 +7,8 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+
+
 #Track the direction the lemming is moving in
 var move_direction = 1
 
@@ -18,7 +20,8 @@ func _on_ready():
 
 func _physics_process(delta):
 	# Add the gravity.
-	if not is_on_floor():
+	if (not is_on_floor()) and (anim.get_current_animation() != "Climb"):
+		print("Not on floor, anim: ", anim.get_current_animation())
 		velocity.y += gravity * delta
 	
 	if is_on_wall():
@@ -32,7 +35,14 @@ func _physics_process(delta):
 		get_node("AnimatedSprite2D").flip_h = false
 		
 	# Automatically move in the current direction
-	velocity.x = move_direction * SPEED
+	#print(anim.get_current_animation())
+	if (anim.get_current_animation() == "Climb"):
+		#print("Is climbing with velocity: ", velocity)
+		#print("Move Direction: ", move_direction)
+		velocity.x = 0
+		velocity.y = -40
+	else:
+		velocity.x = move_direction * SPEED
 	move_and_slide()
 	
 func _on_input_event(viewport, event, shape_idx):
@@ -133,6 +143,10 @@ func texting():
 	#activate_collision("standing")
 
 func go_up_ladder():
-	print("Needing to go up")
-	move_direction = 0
-	anim.play("Idle")	
+	anim.play("Climb")
+
+func stop_ladder():
+	velocity.y = 0
+	move_direction *=-1
+	velocity.x += SPEED * move_direction
+	anim.play("Run")
