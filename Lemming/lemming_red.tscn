@@ -168,7 +168,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ixeiv"]
-radius = 18.0
+radius = 21.0
 height = 188.0
 
 [sub_resource type="AnimationRootNode" id="AnimationRootNode_vjvoa"]
@@ -197,35 +197,6 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_cxe8m"]
-resource_name = "Climb"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Climb"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -474,10 +445,39 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_xr416"]
+resource_name = "Climb"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Climb"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs2yi"]
 _data = {
 "Block": SubResource("Animation_7pfui"),
-"Climb": SubResource("Animation_cxe8m"),
+"Climb": SubResource("Animation_xr416"),
 "Drinking": SubResource("Animation_y0dxp"),
 "Idle": SubResource("Animation_w5lv4"),
 "Jump": SubResource("Animation_xt5dq"),
@@ -490,12 +490,12 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_expw1"]
-radius = 20.0
+radius = 18.0
 height = 202.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14wyy"]
-radius = 36.0
-height = 218.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_uuwkb"]
+a = Vector2(4.99959, -115)
+b = Vector2(3.00041, 111)
 
 [node name="Lemming Red" type="CharacterBody2D"]
 position = Vector2(208, 165)
@@ -532,9 +532,9 @@ position = Vector2(-10, -17)
 shape = SubResource("CapsuleShape2D_expw1")
 
 [node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-15, 2)
+position = Vector2(-15, 14)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_14wyy")
+shape = SubResource("SegmentShape2D_uuwkb")
 disabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

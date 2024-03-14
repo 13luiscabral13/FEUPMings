@@ -176,7 +176,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rykm"]
-radius = 45.0
+radius = 22.0
 height = 216.0
 
 [sub_resource type="Animation" id="Animation_vlifx"]
@@ -203,35 +203,6 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_teqwd"]
-resource_name = "Climb"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Climb"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -493,10 +464,39 @@ tracks/1/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_wcvg4"]
+resource_name = "Climb"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Climb"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dubyb"]
 _data = {
 "Block": SubResource("Animation_vlifx"),
-"Climb": SubResource("Animation_teqwd"),
+"Climb": SubResource("Animation_wcvg4"),
 "Drinking": SubResource("Animation_nr05q"),
 "Idle": SubResource("Animation_f372y"),
 "Jump": SubResource("Animation_loegc"),
@@ -509,12 +509,12 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3tix"]
-radius = 47.0
+radius = 16.0
 height = 226.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqm70"]
-radius = 42.5
-height = 219.0
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_180in"]
+a = Vector2(4.99959, -115)
+b = Vector2(3.00041, 111)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -525,7 +525,6 @@ script = ExtResource("1_hk3en")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1reux")
 animation = &"Lay"
-frame = 1
 
 [node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(-12, -6)
@@ -545,9 +544,9 @@ position = Vector2(-13, -12)
 shape = SubResource("CapsuleShape2D_s3tix")
 
 [node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(-13.5, 14.5)
+position = Vector2(-15, 36)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_qqm70")
+shape = SubResource("SegmentShape2D_180in")
 disabled = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

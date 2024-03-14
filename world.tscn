@@ -12042,7 +12042,7 @@ position = Vector2(-46, 269)
 shape = SubResource("RectangleShape2D_ijebi")
 
 [node name="Right Wall" type="CollisionShape2D" parent="Walls"]
-position = Vector2(1210.5, 284)
+position = Vector2(1212, 283)
 shape = SubResource("RectangleShape2D_mt1d3")
 
 [node name="Floor" type="StaticBody2D" parent="."]
@@ -12125,5 +12125,5 @@ position = Vector2(350, 405)
 scale = Vector2(0.22, 0.22)
 
 [node name="Ladder" parent="." instance=ExtResource("8_52133")]
-position = Vector2(1142, 212)
+position = Vector2(1141, 212)
 scale = Vector2(0.28, 0.22)
