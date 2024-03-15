@@ -24,8 +24,10 @@ func verify_open(node):
 
 func _on_area_2d_area_entered(area):
 	var openability = false
+	var is_red = false
 	var parent = area.get_parent()
 	if "Red" in parent.name:
+		is_red = true
 		var red = get_node("red")
 		if red:
 			openability = verify_open(red)
@@ -38,6 +40,10 @@ func _on_area_2d_area_entered(area):
 		open()
 		area.get_parent().stop_moving() 
 		area.get_parent().queue_free()
+		if is_red:
+			get_parent().red_lemming_entered()
+		else:
+			get_parent().green_lemming_entered()
 
 
 
