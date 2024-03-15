@@ -14,7 +14,10 @@ var move_direction = 1
 
 @onready var anim = get_node("AnimationPlayer")
 
+
+
 func _on_ready():
+	get_node(".").set_floor_max_angle(1.22)
 	add_to_group("lemmings")
 	anim.connect("animation_finished", playNextAnim)
 	anim.play("Run")
