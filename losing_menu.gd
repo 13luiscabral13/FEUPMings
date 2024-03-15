@@ -11,15 +11,8 @@ func _process(delta):
 	pass
 
 
-func _on_area_2d_area_entered(area):
-	print("Going up ladder")
-	var lemming = area.get_parent()
-	lemming.go_up_ladder()
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file("res://world.tscn")
 
-
-
-func _on_area_2d_area_exited(area):
-	print("Area Exited")
-	var lemming = area.get_parent()
-	lemming.stop_ladder()
-
+func _on_menu_button_pressed():
+	get_tree().change_scene_to_file("res://main.tscn")

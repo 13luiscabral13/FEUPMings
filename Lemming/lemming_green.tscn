@@ -1,11 +1,13 @@
-[gd_scene load_steps=45 format=3 uid="uid://dgabkh7etgbq3"]
+[gd_scene load_steps=48 format=3 uid="uid://dgabkh7etgbq3"]
 
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_hk3en"]
 [ext_resource type="Texture2D" uid="uid://dkig42741mg7r" path="res://assets/prebirthdaylemmings/blocking_green_one.png" id="2_3h4h0"]
 [ext_resource type="Texture2D" uid="uid://cx16u0qldeodg" path="res://assets/prebirthdaylemmings/blocking_green_two.png" id="3_0x5mm"]
 [ext_resource type="Texture2D" uid="uid://bj48ocjjt1frc" path="res://assets/lemmings/new-green-lemming.png" id="3_yse3u"]
+[ext_resource type="Texture2D" uid="uid://d137caut73i8y" path="res://assets/prebirthdaylemmings/ladder_green_one.png" id="4_e5upn"]
 [ext_resource type="Texture2D" uid="uid://cyv7b1x7j8h8e" path="res://assets/prebirthdaylemmings/drinking_green_one.png" id="4_sjpxl"]
 [ext_resource type="Texture2D" uid="uid://k6y5nilhiafe" path="res://assets/lemmings/new-green-lemming-jump.png" id="4_tcn1q"]
+[ext_resource type="Texture2D" uid="uid://chhk4ru7dibnm" path="res://assets/prebirthdaylemmings/ladder_green_two.png" id="5_bh55p"]
 [ext_resource type="Texture2D" uid="uid://c7ndtn6vtycuk" path="res://assets/prebirthdaylemmings/drinking_green_two.png" id="5_kp84c"]
 [ext_resource type="Texture2D" uid="uid://24sinvb25jju" path="res://assets/prebirthdaylemmings/idle_green_one.png" id="6_fnove"]
 [ext_resource type="Texture2D" uid="uid://s5p8d4xrms40" path="res://assets/prebirthdaylemmings/idle_green_two.png" id="7_fatv5"]
@@ -47,6 +49,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"Block",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e5upn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bh55p")
+}],
+"loop": true,
+"name": &"Climb",
 "speed": 5.0
 }, {
 "frames": [{
@@ -163,7 +176,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1rykm"]
-radius = 45.0
+radius = 22.0
 height = 216.0
 
 [sub_resource type="Animation" id="Animation_vlifx"]
@@ -190,6 +203,35 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_wcvg4"]
+resource_name = "Climb"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Climb"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -454,6 +496,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dubyb"]
 _data = {
 "Block": SubResource("Animation_vlifx"),
+"Climb": SubResource("Animation_wcvg4"),
 "Drinking": SubResource("Animation_nr05q"),
 "Idle": SubResource("Animation_f372y"),
 "Jump": SubResource("Animation_loegc"),
@@ -466,7 +509,7 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s3tix"]
-radius = 47.0
+radius = 16.0
 height = 226.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_180in"]

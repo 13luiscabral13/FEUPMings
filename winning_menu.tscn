@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0uy04j0ltrxd"]
+
+[ext_resource type="Texture2D" uid="uid://d3dxl5xnyeu85" path="res://assets/menus/victorymenu.png" id="1_e3a17"]
+[ext_resource type="Script" path="res://winning_menu.gd" id="1_unlpf"]
+[ext_resource type="PackedScene" uid="uid://qaq5rm1jnab7" path="res://firework.tscn" id="3_pjekv"]
+
+[node name="WinningMenu" type="Node2D"]
+script = ExtResource("1_unlpf")
+
+[node name="Victorymenu" type="Sprite2D" parent="."]
+position = Vector2(581.444, 325.5)
+scale = Vector2(0.60463, 0.60463)
+texture = ExtResource("1_e3a17")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 48.0
+offset_top = 401.0
+offset_right = 309.0
+offset_bottom = 493.0
+theme_type_variation = &"FlatButton"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 49.0
+offset_top = 518.0
+offset_right = 309.0
+offset_bottom = 610.0
+theme_type_variation = &"FlatButton"
+
+[node name="Firework" parent="." instance=ExtResource("3_pjekv")]
+position = Vector2(523, 180)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

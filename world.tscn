@@ -12075,7 +12075,8 @@ fit_content = true
 tab_size = 1
 
 [node name="Door3" parent="." instance=ExtResource("7_t6vu8")]
-position = Vector2(1091, 158)
+position = Vector2(1376, 256)
+scale = Vector2(1.2, 1.2)
 
 [node name="red" type="RichTextLabel" parent="Door3"]
 offset_left = -35.0
@@ -12087,7 +12088,7 @@ theme_override_font_sizes/normal_font_size = 20
 text = "0/7"
 
 [node name="Door2" parent="." instance=ExtResource("7_t6vu8")]
-position = Vector2(126, 224)
+position = Vector2(792, 607)
 
 [node name="green" type="RichTextLabel" parent="Door2"]
 offset_left = -37.0
@@ -12101,7 +12102,7 @@ fit_content = true
 tab_size = 1
 
 [node name="Lemming Red" parent="." instance=ExtResource("1_q5ij5")]
-position = Vector2(202, 141)
+position = Vector2(104, 435)
 scale = Vector2(0.3, 0.3)
 
 [node name="Lemming Green" parent="." instance=ExtResource("3_6oakw")]
