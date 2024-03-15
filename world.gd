@@ -1,7 +1,7 @@
 extends Node2D
 
 var start_time = 0
-var level_duration = 200
+var level_duration = 5
 var all_red = 0
 var all_green = 0
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +33,8 @@ func green_lemming_entered():
 func _process(delta):
 	var new_time = (Time.get_ticks_msec() - start_time) / 1000
 	var current_timer = level_duration - new_time
+	if (current_timer == -1):
+		get_tree().change_scene_to_file("res://losing_menu.tscn")
 	get_node("Timer").text = str(current_timer)	
 	
 	pass
