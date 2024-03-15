@@ -490,8 +490,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_expw1"]
-radius = 18.0
-height = 202.0
+radius = 43.0
+height = 210.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_uuwkb"]
 a = Vector2(4.99959, -115)
@@ -528,7 +528,7 @@ autoplay = "Run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 999
-position = Vector2(-10, -17)
+position = Vector2(-4, -19)
 shape = SubResource("CapsuleShape2D_expw1")
 
 [node name="LayingCollisionShape" type="CollisionShape2D" parent="."]
@@ -537,5 +537,5 @@ rotation = 1.5708
 shape = SubResource("SegmentShape2D_uuwkb")
 disabled = true
 
-[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
