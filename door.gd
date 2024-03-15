@@ -4,7 +4,8 @@ extends Node2D
 func open():
 	$AnimationPlayer.play("open")
 	
-
+func _ready():
+	add_to_group("Doors")
 
 func verify_open(node):
 	var node_text = node.text
