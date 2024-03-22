@@ -7,15 +7,15 @@
 script = ExtResource("1_agfok")
 
 [node name="Abilities" type="Sprite2D" parent="."]
-position = Vector2(577.5, 325)
-scale = Vector2(0.600521, 0.598148)
+position = Vector2(726.533, 477.5)
+scale = Vector2(0.755764, 0.880555)
 texture = ExtResource("2_3exsr")
 
 [node name="Rules Button" type="Button" parent="."]
-offset_left = 874.0
-offset_top = 18.0
-offset_right = 1133.0
-offset_bottom = 108.0
+offset_left = 1101.0
+offset_top = 25.0
+offset_right = 1425.0
+offset_bottom = 156.0
 theme_type_variation = &"FlatButton"
 
 [connection signal="pressed" from="Rules Button" to="." method="_on_rules_button_pressed"]

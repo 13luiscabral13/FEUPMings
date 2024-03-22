@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dgabkh7etgbq3"]
+[gd_scene load_steps=48 format=3 uid="uid://cylqeuvschmpq"]
 
 [ext_resource type="Script" path="res://Lemming/lemming.gd" id="1_hk3en"]
 [ext_resource type="Texture2D" uid="uid://c0b3n6vx8u8s2" path="res://assets/prebirthdaylemmings/blocking_green_one.png" id="2_3h4h0"]
@@ -513,8 +513,8 @@ radius = 44.0
 height = 226.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_180in"]
-a = Vector2(4.99959, -115)
-b = Vector2(3.00041, 111)
+a = Vector2(2.9995, -138)
+b = Vector2(4.00048, 134)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -525,6 +525,7 @@ script = ExtResource("1_hk3en")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1reux")
 animation = &"Lay"
+frame = 1
 
 [node name="StandingCollisionShape" type="CollisionShape2D" parent="."]
 position = Vector2(9, 2)

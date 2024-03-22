@@ -14,7 +14,7 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	print("Going up ladder")
 	var lemming = area.get_parent()
-	lemming.go_up_ladder()
+	lemming.go_up_ladder(get_node("."))
 
 
 

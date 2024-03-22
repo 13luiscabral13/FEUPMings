@@ -8,26 +8,26 @@
 script = ExtResource("1_unlpf")
 
 [node name="Victorymenu" type="Sprite2D" parent="."]
-position = Vector2(581.444, 325.5)
-scale = Vector2(0.60463, 0.60463)
+position = Vector2(727.222, 473)
+scale = Vector2(0.756482, 0.877778)
 texture = ExtResource("1_e3a17")
 
 [node name="PlayButton" type="Button" parent="."]
-offset_left = 48.0
-offset_top = 401.0
-offset_right = 309.0
-offset_bottom = 493.0
+offset_left = 63.0
+offset_top = 584.0
+offset_right = 387.0
+offset_bottom = 715.0
 theme_type_variation = &"FlatButton"
 
 [node name="QuitButton" type="Button" parent="."]
-offset_left = 49.0
-offset_top = 518.0
-offset_right = 309.0
-offset_bottom = 610.0
+offset_left = 62.0
+offset_top = 754.0
+offset_right = 386.0
+offset_bottom = 883.0
 theme_type_variation = &"FlatButton"
 
 [node name="Firework" parent="." instance=ExtResource("3_pjekv")]
-position = Vector2(523, 180)
+position = Vector2(787, 235)
 scale = Vector2(0.6, 0.6)
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

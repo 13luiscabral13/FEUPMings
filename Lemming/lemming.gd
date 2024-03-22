@@ -2,12 +2,12 @@ extends CharacterBody2D
 class_name Lemming
 
 const SPEED = 70.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-
+var going_up = false
 
 #Track the direction the lemming is moving in
 var move_direction = 1
@@ -38,7 +38,13 @@ func _physics_process(delta):
 		
 	if (anim.get_current_animation() == "Climb"):
 		velocity.x = 0
-		velocity.y = -40
+		if going_up:
+			velocity.y = -40
+		else:
+			if is_on_floor():
+				velocity.x = -move_direction * SPEED
+			else:
+				velocity.y = 40
 	elif (anim.get_current_animation() == "Jump"):
 		velocity.x = move_direction * SPEED * 1.5
 	else:
@@ -56,8 +62,11 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func able_to_move(lemming):
 	var animationPlayer = lemming.get_node("AnimationPlayer")
-	var current = animationPlayer.get_current_animation()
-	if (current == "Drinking" || current == "Texting" || current == "Block" || current == "Lay"):
+	var current = animationPlayer.current_animation
+	print("Animation player: ", animationPlayer)
+	print("Current anim: ", current)
+	if (current == "Drinking" || current == "Texting" || current == "Block" || current == "Lay" || current == ""):
+		print("Lemming: ", lemming)
 		return false
 	return true
 
@@ -114,7 +123,11 @@ func apply_action(action):
 		anim.play("Jump")
 		velocity.y = JUMP_VELOCITY
 	elif action == "Button Blocking":
-		print("Block")
+		if anim.current_animation != "Block" and anim.current_animation != "Lay" and anim.current_animation != "Drinking" and anim.current_animation != "Texting":
+			if "Green" in get_node(".").name:
+				get_parent().add_dead_lemming(1)
+			else:
+				get_parent().add_dead_lemming(0)
 		anim.play("Block")
 		move_direction = 0
 		collision_layer = 1
@@ -129,10 +142,16 @@ func apply_action(action):
 		# After 5 secs the lemming starts running again
 		
 	elif action == "Button Laying":
+		if anim.current_animation != "Block" and anim.current_animation != "Lay" and anim.current_animation != "Drinking" and anim.current_animation != "Texting":
+			if "Green" in get_node(".").name:
+				get_parent().add_dead_lemming(1)
+			else:
+				get_parent().add_dead_lemming(0)
 		print("Lay")
 		anim.play("Lay")
 		collision_layer = 1
 		collision_mask = 3 # 3 in binary, which means that layers 1 and 2 are active
+
 	elif action == "Button Scared":
 		print("Scared")
 		anim.play("Scared")
@@ -161,6 +180,10 @@ func stop_moving():
 func drinking():
 	anim.play("Drinking")
 	move_direction = 0
+	if "Green" in get_node(".").name:
+		get_parent().add_dead_lemming(1)
+	else:
+		get_parent().add_dead_lemming(0)
 	#activate_collision("standing")
 
 func texting():
@@ -168,9 +191,19 @@ func texting():
 	move_direction = 0
 	collision_layer = 1
 	collision_mask = 3 # 3 in binary, which means that layers 1 and 2 are active
+	if "Green" in get_node(".").name:
+		get_parent().add_dead_lemming(1)
+	else:
+		get_parent().add_dead_lemming(0)
 	#activate_collision("standing")
 
-func go_up_ladder():
+func go_up_ladder(ladder):
+	print(ladder.global_position)
+	print(global_position)
+	if (global_position[1] > ladder.global_position[1]):
+		going_up = true
+	else:
+		going_up = false
 	anim.play("Climb")
 
 func stop_ladder():

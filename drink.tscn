@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxp5b0vy08fjo"]
+[gd_scene load_steps=4 format=3 uid="uid://c3tvfy3kjxx11"]
 
 [ext_resource type="Script" path="res://drink.gd" id="1_4iglc"]
 [ext_resource type="Texture2D" uid="uid://no6v6mdrtucx" path="res://assets/obstacles/drink.png" id="1_rdqnq"]
